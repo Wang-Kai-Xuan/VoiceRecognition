@@ -4,9 +4,9 @@ from PyQt4 import  QtGui,QtCore
 from PyQt4.QtGui import QMainWindow
 from PyQt4.QtCore import pyqtSignature
 from fileCenterwidget import FileCenterWidget
-from recordCenterwidget import RecordCenterWidget 
 from recordWidget import RecordWidget
 from playerWidget import PlayerWidget
+from recognitionWidget import RecognitionWidget
 
 class MainWidget(QMainWindow):
     def __init__(self):
@@ -62,7 +62,7 @@ class MainWidget(QMainWindow):
 
     @pyqtSignature("")        
     def onRecognitionRecord(self):
-        test = RecordCenterWidget()
+        test = RecognitionWidget()
         self.setCentralWidget(test)
         test.show()
     

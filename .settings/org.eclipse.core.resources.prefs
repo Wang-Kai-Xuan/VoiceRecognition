@@ -1,8 +1,7 @@
 eclipse.preferences.version=1
-encoding/baseCenterwidget.py=utf-8
 encoding/fileCenterwidget.py=utf-8
 encoding/playerWidget.py=utf-8
+encoding/recognitionWidget.py=utf-8
 encoding/record.py=utf-8
-encoding/recordCenterwidget.py=utf-8
 encoding/recordWidget.py=utf-8
 encoding/start.py=utf-8

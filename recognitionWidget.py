@@ -7,8 +7,7 @@ import urllib2,pycurl
 from PyQt4 import  QtGui, QtCore
 from PyQt4.QtGui import QMainWindow, QWidget
 from PyQt4.QtCore import pyqtSignature
-
-class BaseCenterWidget(QWidget):
+class RecognitionWidget(QWidget):
     
     def __init__(self):
         QMainWindow.__init__(self)
@@ -23,7 +22,8 @@ class BaseCenterWidget(QWidget):
         self.lab_show_result = QtGui.QLabel(self)
         self.mainLayout = QtGui.QGridLayout(self)
         self.lin_show_dir = QtGui.QLineEdit(self)
-                
+        self.btn_begin_record = QtGui.QPushButton(self)
+        self.btn_stop_record = QtGui.QPushButton(self)
         #对控件进行设置\初始化
         self.radbtn_en.setFixedWidth(120)        
         self.radbtn_zn.setFixedWidth(120)        
@@ -33,7 +33,12 @@ class BaseCenterWidget(QWidget):
         self.radbtn_en.setText(u"英文识别&E")
         self.btn_push.setText(u"识别&R")
         self.lab_show_result.setText(u'识别结果:')
+        self.btn_begin_record.setText(u"开始录音&B")
+        self.btn_stop_record.setText(u"结束录音&B")
+
         #对控件进行布局
+        self.mainLayout.addWidget(self.btn_begin_record,1,1,1,1)
+        self.mainLayout.addWidget(self.btn_stop_record,1,2,1,1)        
         self.mainLayout.addWidget(self.radbtn_zn,0,0,1,1)
         self.mainLayout.addWidget(self.radbtn_en,0,1,1,1)
         self.mainLayout.addWidget(self.lin_show_dir,0,3,1,1)
@@ -68,7 +73,7 @@ class BaseCenterWidget(QWidget):
     
     #上传百度云语音进行识别
     def use_cloud(self,token):
-        fp = wave.open(u'01.wav', 'rb')
+        fp = wave.open(u'default_record.wav', 'rb')
         nf = fp.getnframes()
         #self.text_show.append(str(fp.getsampwidth()))
         #self.text_show.append(fp.getframerate())
@@ -94,8 +99,6 @@ class BaseCenterWidget(QWidget):
     
     @pyqtSignature("")        
     def onRecord(self):
-        self.text_show.append('onRecord...')
-        #record_wav()
         self.use_cloud(self.get_token())
     
     @pyqtSignature("")        
