@@ -9,15 +9,16 @@ framerate = 8000
 NUM_SAMPLES = 2000
 TIME = 2
 
-def write_wav_file(filename,data):
-    wf = wave.open(filename, 'wb')
+def save_wav_file(save_file_name,data):
+    print save_file_name
+    wf = wave.open(save_file_name, 'wb')
     wf.setnchannels(chnnels)
     wf.setsampwidth(sampwidth)
     wf.setframerate(framerate)
-    wf.writeframes("".join(data))
+    wf.writeframes(" ".join(data))
     wf.close()
     
-def record_wav():
+def record_wav(save_file_name):
     pa = PyAudio()
     stream = pa.open(format = paInt16
                      ,channels = 1
@@ -31,6 +32,6 @@ def record_wav():
         buf.append(audio_data)
         count += 1
         print '...'
-    write_wav_file('01.wav', buf)
+    save_wav_file(save_file_name, buf)
     stream.close()
     

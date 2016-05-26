@@ -27,6 +27,7 @@ class BaseCenterWidget(QWidget):
         #对控件进行设置\初始化
         self.radbtn_en.setFixedWidth(120)        
         self.radbtn_zn.setFixedWidth(120)        
+        
         self.radbtn_zn.setText(u"中文识别&C")
         self.radbtn_zn.setChecked(True)
         self.radbtn_en.setText(u"英文识别&E")
@@ -37,7 +38,7 @@ class BaseCenterWidget(QWidget):
         self.mainLayout.addWidget(self.radbtn_en,0,1,1,1)
         self.mainLayout.addWidget(self.lin_show_dir,0,3,1,1)
         self.mainLayout.addWidget(self.btn_push,1,0,1,1)
-        self.mainLayout.addWidget(self.lab_show_result,1,1,1,1)
+        self.mainLayout.addWidget(self.lab_show_result,1,2,1,1)
         self.mainLayout.addWidget(self.text_show,2,0,1,4)
         self.setLayout(self.mainLayout)
         
